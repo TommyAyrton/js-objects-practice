@@ -13,18 +13,47 @@ If your program is stuck in an infinite loop, you can break out of the program b
 // -- name
 // -- inventory
 // -- unit_price
-
+const products = [
+    {
+        name: "chair",
+        inventory: 10,
+        unit_price: 45.99
+    },
+    {
+        name: "table",
+        inventory: 7,
+        unit_price: 78.99
+    },
+    {
+        name: "mueble",
+        inventory: 3,
+        unit_price: 145.99
+    },
+];
 
 // 3. Create a function named listProducts(). The function should accept 1 parameter -- the array of products. It should return an array of just the names of the products.
 
+const listProducts = (arrProducts) => {
+    const product = [];
+    for (let i = 0; i < arrProducts.length; i++) {        
+        product.push(arrProducts[i].name);        
+    }
+    return product;
+}
 
 // 4. Call the listProducts() function and log the returned value to the console.
-
+console.log(listProducts(products));
 
 // 5. Create a function names totalValue(). The function should accept 1 parameter -- the array of products. It should return the total value of all of the products in the array. You calculate the value of one product by multiplying the inventory value by the unit_price value
-
+const totalValue = (arrProducts) => {
+    let totalSale = 0;
+    for (let i = 0; i < arrProducts.length; i++) {
+        totalSale = totalSale + arrProducts[i].inventory * arrProducts[i].unit_price;        
+    }
+    return totalSale;
+}
 
 // 6. Call the totalValue() function and log the returned value to the console.
-
+console.log(totalValue(products));
 
 // 7. Run your code by typing node 3_final_products.js in the console below
